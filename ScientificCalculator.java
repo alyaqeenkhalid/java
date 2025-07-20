@@ -46,6 +46,9 @@ public class ScientificCalculator {
                     case 10:
                         performNaturalLogarithm(scanner);
                         break;
+                    case 11:
+                        performLogarithmBase10(scanner);
+                        break;
                     case 0:
                         running = false;
                         System.out.println("Exiting calculator. Goodbye!");
@@ -75,6 +78,7 @@ public class ScientificCalculator {
         System.out.println("8. Cosine (degrees)");
         System.out.println("9. Tangent (degrees)");
         System.out.println("10. Natural Logarithm (ln)");
+        System.out.println("11. Base-10 Logarithm (log10)");
         System.out.println("0. Exit");
     }
 
@@ -225,4 +229,18 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
+    private static void performLogarithmBase10(Scanner scanner) {
+        try {
+            System.out.print("Enter a positive number: ");
+            double num = scanner.nextDouble();
+            scanner.nextLine();
+            if (num <= 0) {
+                System.out.println("Error: Input must be positive for base-10 logarithm.");
+            } else {
+                System.out.println("Result: " + Math.log10(num));
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a numeric value.");
+            scanner.nextLine();
+        }
 }
