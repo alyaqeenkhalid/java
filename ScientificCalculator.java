@@ -37,6 +37,9 @@ public class ScientificCalculator {
                     case 7:
                         performSine(scanner);
                         break;
+                    case 8:
+                        performCosine(scanner);
+                        break;
                     case 0:
                         running = false;
                         System.out.println("Exiting calculator. Goodbye!");
@@ -63,6 +66,7 @@ public class ScientificCalculator {
         System.out.println("5. Square Root");
         System.out.println("6. Power");
         System.out.println("7. Sine (degrees)");
+        System.out.println("8. Cosine (degrees)");
         System.out.println("0. Exit");
     }
 
@@ -164,6 +168,18 @@ public class ScientificCalculator {
             System.out.println("Result: " + Math.sin(radians));
         } catch (InputMismatchException e) {
             System.out.println("Invalid input.");
+            scanner.nextLine();
+        }
+    }
+    private static void performCosine(Scanner scanner) {
+        try {
+            System.out.print("Enter angle in degrees: ");
+            double degrees = scanner.nextDouble();
+            scanner.nextLine();
+            double radians = Math.toRadians(degrees);
+            System.out.println("Result: " + Math.cos(radians));
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a numeric value.");
             scanner.nextLine();
         }
     }
