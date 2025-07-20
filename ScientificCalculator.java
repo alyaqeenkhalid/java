@@ -25,6 +25,9 @@ public class ScientificCalculator {
                     case 3:
                         performMultiplication(scanner);
                         break;
+                    case 4:
+                        performDivision(scanner);
+                        break;
                     case 0:
                         running = false;
                         System.out.println("Exiting calculator. Goodbye!");
@@ -47,6 +50,7 @@ public class ScientificCalculator {
         System.out.println("1. Add");
         System.out.println("2. Subtract");
         System.out.println("3. Multiply");
+        System.out.println("4. Divide");
         System.out.println("0. Exit");
     }
 
@@ -92,7 +96,24 @@ public class ScientificCalculator {
             scanner.nextLine();
         }
     }
-
+    private static void performDivision(Scanner scanner) {
+        try {
+            System.out.print("Enter numerator: ");
+            double num1 = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.print("Enter denominator: ");
+            double num2 = scanner.nextDouble();
+            scanner.nextLine();
+            if (num2 == 0) {
+                System.out.println("Cannot divide by zero.");
+            } else {
+                System.out.println("Result: " + (num1 / num2));
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input.");
+            scanner.nextLine();
+        }
+    }
 
 
 }
