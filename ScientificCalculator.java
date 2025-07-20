@@ -28,6 +28,9 @@ public class ScientificCalculator {
                     case 4:
                         performDivision(scanner);
                         break;
+                    case 5:
+                        performSquareRoot(scanner);
+                        break;
                     case 0:
                         running = false;
                         System.out.println("Exiting calculator. Goodbye!");
@@ -51,6 +54,7 @@ public class ScientificCalculator {
         System.out.println("2. Subtract");
         System.out.println("3. Multiply");
         System.out.println("4. Divide");
+        System.out.println("5. Square Root");
         System.out.println("0. Exit");
     }
 
@@ -108,6 +112,21 @@ public class ScientificCalculator {
                 System.out.println("Cannot divide by zero.");
             } else {
                 System.out.println("Result: " + (num1 / num2));
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input.");
+            scanner.nextLine();
+        }
+    }
+    private static void performSquareRoot(Scanner scanner) {
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+            scanner.nextLine();
+            if (num < 0) {
+                System.out.println("Cannot take square root of negative number.");
+            } else {
+                System.out.println("Result: " + Math.sqrt(num));
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input.");
